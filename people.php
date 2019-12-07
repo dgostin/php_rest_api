@@ -13,11 +13,11 @@ class People {
 
     function get_data($where_clause){
  
-    	$query = "
-    	SELECT id, first_name, last_name, email, gender, title, dept
-    	FROM   people
-    	$where_clause
-    	";
+		$query = "
+		SELECT id, first_name, last_name, email, gender, title, dept
+		FROM   people
+		$where_clause
+		";
 
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
