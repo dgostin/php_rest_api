@@ -2,7 +2,7 @@
 
 class People {
 
-    private $conn;
+	private $conn;
 	private $table_name = "people";
 
 	public function __construct($db){
@@ -21,14 +21,12 @@ class People {
 		$stmt->execute();
 
 		return $stmt;
-
 	}
 
 
 	function get_where_clause_from_url () {
 
-    	// Sanitize data and create where clause
-
+		// Sanitize data and create where clause
 		$url_params = array();
 		$where = array();
 		$where_clause = '';
