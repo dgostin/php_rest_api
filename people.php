@@ -13,18 +13,14 @@ class People {
 
     function get_data($where_clause){
  
- 	   // select all query
     	$query = "
     	SELECT id, first_name, last_name, email, gender, title, dept
     	FROM   people
     	$where_clause
     	";
 
-	    // prepare query statement
-    	$stmt = $this->conn->prepare($query);
- 
-    	// execute query
-    	$stmt->execute();
+	 	$stmt = $this->conn->prepare($query);
+ 		$stmt->execute();
  
     	return $stmt;
 
