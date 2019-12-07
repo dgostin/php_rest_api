@@ -19,8 +19,8 @@ class People {
     	$where_clause
     	";
 
-	 	$stmt = $this->conn->prepare($query);
- 		$stmt->execute();
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
  
     	return $stmt;
 
