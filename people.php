@@ -1,18 +1,16 @@
 <?php
 
 class People {
- 
-    // database connection and table name
-    private $conn;
-    private $table_name = "people";
-    
-    // constructor with $db as database connection
-    public function __construct($db){
-        $this->conn = $db;
-    }
 
-    function get_data($where_clause){
- 
+    private $conn;
+	private $table_name = "people";
+
+	public function __construct($db){
+		$this->conn = $db;
+	}
+
+	function get_data($where_clause){
+
 		$query = "
 		SELECT id, first_name, last_name, email, gender, title, dept
 		FROM   people
@@ -21,21 +19,21 @@ class People {
 
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
- 
-    	return $stmt;
 
-    }
+		return $stmt;
+
+	}
 
 
-    function get_where_clause_from_url () {
+	function get_where_clause_from_url () {
 
     	// Sanitize data and create where clause
 
-    	$url_params = array();
-    	$where = array();
-    	$where_clause = '';
+		$url_params = array();
+		$where = array();
+		$where_clause = '';
 
-    	$url = $_SERVER['REQUEST_URI'];
+		$url = $_SERVER['REQUEST_URI'];
 		$url_arr = parse_url($url);
 		if (!array_key_exists("query", $url_arr)) {
 			return '';
@@ -92,7 +90,7 @@ class People {
 
 		return $where_clause;
 
-    }
+	}
 
 }
 
